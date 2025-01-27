@@ -14,15 +14,41 @@
     <label for="svars">Svars(Kilogramos)</label>
     <input type="number" name="svars" id="svars">
 
-    <input type="button" value="buttn" id="buttn">
+    <input type="button" value="Aprēķināt" id="buttn">
+    <p id="output"></p>
     <script>
         let button = document.getElementById("buttn");
 
         button.addEventListener("click", function () {
-            console.log("yo");
-        })
-        const height = parseFloat(document.getElementById("augstums").value);
-        const weight = parseFloat(document.getElementById("svars").value);
+            const height = parseFloat(document.getElementById("augstums").value);
+            const weight = parseFloat(document.getElementById("svars").value);
+            const outputC = document.getElementById("output");
+
+            const kmi = calc(height, weight);
+            console.log(kmi);
+
+            outputC.innerHTML = "Tavs kmi: " + kmi + " Tava kmi kategorija: " + category(height, weight);
+        });
+
+        function calc(height, weight) {
+            return weight / (height ** 2);
+        }
+
+        function category(height, weight) {
+            const kmi = calc(height, weight);
+            if (kmi < 18, 5) {
+                return "nepietiekama ķermeņa masa"
+            }
+            if (kmi >= 18, 5 && kmi <= 24, 99) {
+                return "normāla ķermeņa masa"
+            }
+            if (kmi >= 25 && kmi <= 29, 99) {
+                return "lieka ķermeņa masa"
+            }
+            if (kmi > 30) {
+                return "aptaukošanās"
+            }
+        }
     </script>
 </body>
 
