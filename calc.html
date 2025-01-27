@@ -10,9 +10,20 @@
 <body>
     <label for="augstums">Augstums(Metros)</label>
     <input type="number" name="augstums" id="augstums">
-    <br>
+
     <label for="svars">Svars(Kilogramos)</label>
     <input type="number" name="svars" id="svars">
+
+    <input type="button" value="buttn" id="buttn">
+    <script>
+        let button = document.getElementById("buttn");
+
+        button.addEventListener("click", function () {
+            console.log("yo");
+        })
+        const height = parseFloat(document.getElementById("augstums").value);
+        const weight = parseFloat(document.getElementById("svars").value);
+    </script>
 </body>
 
 </html>
